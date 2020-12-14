@@ -42,12 +42,19 @@ Integrating an ELK server allows users to easily monitor the vulnerable VMs for 
 The configuration details of each machine may be found below.
 
 | Name    | Function      | Ip Address     | Operating System |
+
 | JumpBox | Gateway       | 10.0.0.1       | Linux            |
+
 | Web-1   | Server        | 10.0.0.7       | Linux            |
+
 | Web-2   | Server        | 10.0.0.8       | Linux            |
+
 | Web-3   | Server        | 10.0.0.9       | Linux            |
+
 | ELK     | Server        | 10.1.0.4       | Linux            |
+
 | LB      | Load Balancer | 52.191.136.128 | N/A              |
+
 
 ### Access Policies
 
@@ -70,10 +77,15 @@ I allowed the JumpBox machine access to the ELK VM. It has an IP address of 76.2
 A summary of the access policies in place can be found in the table below.
 
 | Name          | Publicly Accessible | Allowed IP Addresses |
+
 | JumpBox       | Yes                 | *My.Host.Machine.IP* |
+
 | ELK           | Yes                 | 10.0.0.4/32          |
+
 | Load Balancer | Yes                 | Any                  |
+
 | Web Servers   | No                  | 52.146.45.9(LB)      |
+
 
 
 ### Elk Configuration
