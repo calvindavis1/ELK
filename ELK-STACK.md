@@ -41,17 +41,21 @@ Integrating an ELK server allows users to easily monitor the vulnerable VMs for 
 
 The configuration details of each machine may be found below.
 
-\begin{table}[]
-\begin{tabular}{llll}
-Name     & Function      & IP Address     & Operating System \\
-Jump Box & Gateway       & 10.0.0.1       & Linux            \\
-Web-1    & Server        & 10.0.0.7       & Linux            \\
-Web-2    & Server        & 10.0.0.8       & Linux            \\
-Web-3    & Server        & 10.0.0.9       & Linux            \\
-ELK      & Server        & 10.1.0.4       & Linux            \\
-LB       & Load Balancer & 52.191.136.128 & N/A             
-\end{tabular}
-\end{table}
++---------+---------------+----------------+------------------+
+| Name    | Function      | Ip Address     | Operating System |
++---------+---------------+----------------+------------------+
+| JumpBox | Gateway       | 10.0.0.1       | Linux            |
++---------+---------------+----------------+------------------+
+| Web-1   | Server        | 10.0.0.7       | Linux            |
++---------+---------------+----------------+------------------+
+| Web-2   | Server        | 10.0.0.8       | Linux            |
++---------+---------------+----------------+------------------+
+| Web-3   | Server        | 10.0.0.9       | Linux            |
++---------+---------------+----------------+------------------+
+| ELK     | Server        | 10.1.0.4       | Linux            |
++---------+---------------+----------------+------------------+
+| LB      | Load Balancer | 52.191.136.128 | N/A              |
++---------+---------------+----------------+------------------+
 
 ### Access Policies
 
@@ -59,9 +63,12 @@ The machines on the internal network are not exposed to the public Internet.
 
 Only the JumpBox machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
 
-76.25.65.45
-192.168.0.7
-*My host IP*
+- 76.25.65.45
+
+- 192.168.0.7
+
+- *My host IP*
+
 
 
 Machines within the network can only be accessed by Jumpbox and ELK server.
@@ -70,15 +77,18 @@ I allowed the JumpBox machine access to the ELK VM. It has an IP address of 76.2
 
 A summary of the access policies in place can be found in the table below.
 
-\begin{table}[]
-\begin{tabular}{lll}
-Name          & Publicly Accessible & Allowed IP Addresses \\
-JumpBox       & Yes                 & *My.Host.Machine.IP* \\
-ELK           & Yes                 & 10.0.0.4/32          \\
-Load Balancer & Yes                 & Any                  \\
-Web Servers   & No                  & 52.146.45.9(LB)     
-\end{tabular}
-\end{table}
++---------------+---------------------+----------------------+
+| Name          | Publicly Accessible | Allowed IP Addresses |
++---------------+---------------------+----------------------+
+| JumpBox       | Yes                 | *My.Host.Machine.IP* |
++---------------+---------------------+----------------------+
+| ELK           | Yes                 | 10.0.0.4/32          |
++---------------+---------------------+----------------------+
+| Load Balancer | Yes                 | Any                  |
++---------------+---------------------+----------------------+
+| Web Servers   | No                  | 52.146.45.9(LB)      |
++---------------+---------------------+----------------------+
+
 
 ### Elk Configuration
 
@@ -115,7 +125,9 @@ These Beats allow us to collect the following information from each machine:
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
+
 - Copy the elk playbook file to the ansible container.
+
 - Update the /ansible/host file to include all of the IP addresses of the servers that you would like to make your instalation on.
 
 - Run the playbook, and navigate to http://elkserverip:5601/app/kibana to check that the installation worked as expected.
@@ -124,8 +136,6 @@ SSH into the control node and follow the steps below:
 - The playbookfiles are Elk_YML.yml, Docker_YML.yml, and MetricBeat_YML.yml and they need to be copied to /etc/ansible/roles
 
 - You will need to update the /etc/ansible/host file to include the IP addresses of the servers you would like to configure. Edit the /ect/ansible/host file and add the public IP's of the servers you would like to configure the ELK server on and the public IP's of the servers you would like to install FileBeat or MetricBeat on.
-
-- _Which URL do you navigate to in order to check that the ELK server is running?
 
 To check to see whether or not the ELK server is running, navigate to you internet browser and go to the following address:
 
